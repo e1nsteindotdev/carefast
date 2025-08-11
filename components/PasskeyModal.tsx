@@ -21,6 +21,7 @@ import {
 import { decryptKey, encryptKey } from "@/lib/utils";
 
 export const PasskeyModal = () => {
+  const NEXT_PUBLIC_ADMIN_PASSKEY = 111111
   const router = useRouter();
   const path = usePathname();
   const [open, setOpen] = useState(false);
@@ -36,12 +37,14 @@ export const PasskeyModal = () => {
     const accessKey = encryptedKey && decryptKey(encryptedKey);
 
     if (path)
-      if (accessKey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY!.toString()) {
-        setOpen(false);
-        router.push("/admin");
-      } else {
-        setOpen(true);
-      }
+      console.log("acccesKey : ", accessKey)
+    console.log("public admin key : ", NEXT_PUBLIC_ADMIN_PASSKEY!.toString() === accessKey)
+    if (accessKey === NEXT_PUBLIC_ADMIN_PASSKEY!.toString()) {
+      setOpen(false);
+      router.push("/admin");
+    } else {
+      setOpen(true);
+    }
   }, [encryptedKey]);
 
   const closeModal = () => {
@@ -56,9 +59,7 @@ export const PasskeyModal = () => {
 
     if (passkey === process.env.NEXT_PUBLIC_ADMIN_PASSKEY) {
       const encryptedKey = encryptKey(passkey);
-
       localStorage.setItem("accessKey", encryptedKey);
-
       setOpen(false);
     } else {
       setError("Invalid passkey. Please try again.");

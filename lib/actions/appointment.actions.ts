@@ -25,6 +25,7 @@ export const createAppointment = async (
       appointment
     );
 
+    console.log("appointment :", newAppointment)
     revalidatePath("/admin");
     return parseStringify(newAppointment);
   } catch (error) {

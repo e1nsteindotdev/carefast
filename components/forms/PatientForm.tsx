@@ -38,6 +38,7 @@ export const PatientForm = () => {
       };
 
       const newUser = await createUser(user);
+      console.log("the new user :", newUser)
 
       if (newUser) {
         router.push(`/patients/${newUser.$id}/register`);
@@ -82,7 +83,7 @@ export const PatientForm = () => {
           control={form.control}
           name="phone"
           label="Phone number"
-          placeholder="(555) 123-4567"
+          placeholder="(213) 557-10-23-63"
         />
 
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>

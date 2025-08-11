@@ -8,6 +8,7 @@ import {
   ENDPOINT,
   PATIENT_COLLECTION_ID,
   PROJECT_ID,
+  API_KEY,
   databases,
   storage,
   users,
@@ -16,6 +17,11 @@ import { parseStringify } from "../utils";
 
 // CREATE APPWRITE USER
 export const createUser = async (user: CreateUserParams) => {
+  console.log("endpoint \n project_ID \n API KEY");
+  console.log(ENDPOINT);
+  console.log(PROJECT_ID);
+  console.log(API_KEY);
+  console.log("users :", users);
   try {
     // Create new user -> https://appwrite.io/docs/references/1.5.x/server-nodejs/users#create
     const newuser = await users.create(
@@ -36,7 +42,8 @@ export const createUser = async (user: CreateUserParams) => {
 
       return existingUser.users[0];
     }
-    console.error("An error occurred while creating a new user:", error);
+    console.error("An errfr occurred while creating a new user:", error);
+    console.log("users :", user);
   }
 };
 
