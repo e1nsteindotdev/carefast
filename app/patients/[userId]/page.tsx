@@ -30,8 +30,6 @@ const AdminPage = async ({ params: { userId } }: SearchParamProps) => {
             className="h-8 w-fit"
           />
         </Link>
-
-        <p className="text-16-semibold">Admin Dashboard</p>
       </header>
 
       <main className="admin-main">
@@ -39,13 +37,13 @@ const AdminPage = async ({ params: { userId } }: SearchParamProps) => {
           <div className='space-y-4'>
             <h1 className="header">Welcome 👋</h1>
             <p className="text-dark-700">
-              Start the day with managing new appointments
+              Manage all of your appointments here.
             </p>
           </div>
           <Dialog>
             <form>
               <DialogTrigger asChild>
-                <Button variant="outline">Open Dialog</Button>
+                <Button className="bg-[#FFCF02] text-black">Request a new Appointment now</Button>
               </DialogTrigger>
             </form>
             <NewAppointmentDialog userId={userId} />

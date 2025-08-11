@@ -1,20 +1,15 @@
 import Image from "next/image";
 
 import { AppointmentForm } from "@/components/forms/AppointmentForm";
-import {
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog"
+import { DialogContent, } from "@/components/ui/dialog"
 import { getPatient } from "@/lib/actions/patient.actions";
 
 const Appointment = async ({ userId }: { userId: string }) => {
   const patient = await getPatient(userId);
   return (
     <div className="flex w-full">
-      <section className="remove-scrollbar container my-auto">
-        <div className="sub-container max-w-[860px] flex-1 justify-between">
+      <section className="remove-scrollbar container my-auto w-full">
+        <div className="sub-container max-w-[1260px] flex-1 justify-between">
           <Image
             src="/assets/icons/logo-full.svg"
             height={1000}
@@ -28,7 +23,7 @@ const Appointment = async ({ userId }: { userId: string }) => {
             userId={userId}
             type="create"
           />
-          <p className="copyright mt-10 py-12">© 2024 CarePluse</p>
+          <p className="copyright mt-10 py-12">© 2025 Carefast</p>
         </div>
       </section>
     </div>
@@ -36,15 +31,9 @@ const Appointment = async ({ userId }: { userId: string }) => {
 };
 
 export const NewAppointmentDialog = async ({ userId }: { userId: string }) => {
-  return (<DialogContent className="w-full">
-
+  return (<DialogContent className="shad-dialog sm:max-w-md ">
     <Appointment userId={userId} />
-    {/* <DialogFooter> */}
-    {/*   <DialogClose asChild> */}
-    {/*     <Button variant="outline">Cancel</Button> */}
-    {/*   </DialogClose> */}
-    {/*   <Button type="submit">Save changes</Button> */}
-    {/* </DialogFooter> */}
-  </DialogContent>)
+  </DialogContent>
+  )
 }
 
