@@ -175,7 +175,7 @@ export const AppointmentForm = ({
             />
 
             <div
-              className={`flex flex-col gap-6  ${type === "create" && "xl:flex-row"}`}
+              className={`flex flex-col gap-6  ${type === "create" && "xl:flex-col"}`}
             >
               <CustomFormField
                 fieldType={FormFieldType.TEXTAREA}
